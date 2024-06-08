@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Time skip</title>
+</head>
+<body>
+    <p>Title: Time skip</p>
+    <p>Description: One of our problem writers got sent back in time! We found a piece a very very old piece of parchment where he disappeared, alongside a long cylinder. See if you can uncover his flag!</p>
+    <p>Encrypted text: hsggna0stiaeaetteyc4ehvdatyporwtyseefregrstaf_etposruouoy{qnirroiybrbs5edmothssavetc8hebhwuibihh72eyaoepmlvoet9lobulpkyenf4xpulsloinmelllisyassnousa31mebneedtctg_}eeedeboghbihpatesyyfolus1lnhnooeliotb5ebidfueonnactayseyl</p>
+    <p>Solve:</p>
+    <p>Description mentions a "long cylinder," which suggests that the text may be a transposition cipher, specifically a cipher text created using a cylinder or a rod (a scytale). </p>
+    <p>Let's attempt to decrypt this by rearranging the characters in a way that resembles the use of a scytale cipher.</p>
+    <code>def decode_scytale_cipher(text, columns):
+        rows = len(text) // columns
+        decoded = [''] * rows
+        for i in range(len(text)):
+            row = i % rows
+            decoded[row] += text[i]
+        return ''.join(decoded)
+    
+    cipher_text = "hsggna0stiaeaetteyc4ehvdatyporwtyseefregrstaf_etposruouoy{qnirroiybrbs5edmothssavetc8hebhwuibihh72eyaoepmlvoet9lobulpkyenf4xpulsloinmelllisyassnousa31mebneedtctg_}eeedeboghbihpatesyyfolus1lnhnooeliotb5ebidfueonnactayseyl"
+    
+    for cols in range(1, 21):  # trying different column sizes
+        decoded_text = decode_scytale_cipher(cipher_text, cols)
+        print(f"Columns: {cols}\n{decoded_text}\n")</code>
+
+    <p>Result of code: Columns: 16 heyguysimkindoflostprobablynotgoingtosurvivemuchlongertobehonestbutanywaystheflagisbcactf{5c7t4l3_h15t04y_qe829xl1}pleasesendhelpimeanbythetimeyouseethisiveprobablybeendeadforthousandsofyearsohwellseeyoulaterisupposebyee</p>
+
+    
+</body>
+</html>
